@@ -1,0 +1,4 @@
+编辑etc default grub文件
+GRUB CMDLINE LINUX DEFAULT增加isolcpus=10-95
+执行sudo updategrub
+

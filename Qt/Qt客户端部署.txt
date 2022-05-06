@@ -1,0 +1,11 @@
+1.根据ldd命令找出所有动态库
+
+包括自己开发的库和Qt的库，使用export LD_LIBRARY_PATH指向所在文件夹。Qt库一般在~/Qt5.12.*/5.12.*/gcc_64/lib下或~/Qt5.12.*/Tools/QtCreator/lib/Qt/lib下
+
+2.
+复制文件夹~/Qt5.12.*/5.12.*/gcc_64/plugins/platforms到自己目录，然后使用export QT_QPA_PLATFORM_PLUGIN_PATH指向此文件夹，
+复制~/Qt5.12.*/5.12.*/gcc_64/plugins/xcbglintegrations文件夹到可执行程序同级目录下3.部署QWebEngin相关，
+复制~/Qt5.12.*/5.12.*/gcc_64/libexec/QtWebEngineProcess，~/Qt5.12.*/5.12.*/gcc_64/resources下所有文件，~/Qt5.12.*/5.12.*/gcc_64/translations/qtwebengine_locales下的需要的pak文件到可执行程序同级目录下
+
+
+注意！不要复制额外的系统库！

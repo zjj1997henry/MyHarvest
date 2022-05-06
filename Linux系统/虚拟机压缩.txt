@@ -1,0 +1,9 @@
+碎片整理
+
+打开虚拟机，执行下面的命令：
+sudo dd if=/dev/zero of=/free bs=1M
+sudo rm -f /free
+
+压缩磁盘
+关闭虚拟机，然后通过vboxmanage modifyhd中的--compact来进行，例如：
+VBoxManage modifyhd ubuntu.vdi --compact

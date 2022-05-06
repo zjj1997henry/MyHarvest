@@ -1,0 +1,5 @@
+myisampack table
+myisamchk -rq mul
+mysqladmin -u root -p123456 flush-tables
+
+如果出错，用repair 修复

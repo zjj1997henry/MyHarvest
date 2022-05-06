@@ -1,0 +1,29 @@
+sed [options] 'command' file
+-e    可以在同一行里执行多条命令
+-f    后跟保存了sed命令的文件
+-i    直接对文件修改，而不是输出到终端
+-n   只显示改变的行
+
+
+a: 新增行   
+sed '1a hello world' example.txt  在第一行后添加一行
+
+c: 取代行    
+sed '1c hello world' example.txt 将第一行替换
+sed '/^2/c hello world' example.txt 将以2开头的行替换
+
+d: 删除行
+ sed '1,2d' example.txt      删除第一、二行
+ sed '/2/d' example.txt      删除含有2的行（正则表达式）
+ sed '/^2/d' example.txt     删除以2开头的行
+
+i:  插入行
+sed ‘1i hello world' example.txt  在第一行前添加一行
+
+s: 替换内容
+sed '1s/代替换字符/新字符/' example.txt  替换找到的第一行
+sed 's/代替换字符/新字符/g' example.txt  替换全局
+sed 'm,ns/代替换字符/新字符/g' example.txt  替换m,n之间
+
+p: 输出行
+sed -n '2p' example.txt  输出第二行

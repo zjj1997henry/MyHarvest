@@ -1,0 +1,27 @@
+%：表示任意0个或多个字符。可匹配任意类型和长度的字符，有些情况下若是中文，请使用两个百分号（%%）表示。
+SELECT * FROM [user] WHERE u_name LIKE '%三%'
+
+
+_： 表示任意单个字符。匹配单个任意字符，它常用来限制表达式的字符长度语句：
+SELECT * FROM [user] WHERE u_name LIKE '三__'; 
+
+[ ]：表示括号内所列字符中的一个（类似正则表达式）。指定一个字符、字符串或范围，要求所匹配对象为它们中的任一个。
+SELECT * FROM [user] WHERE u_name LIKE '老[1-9]' 将找出“老1”、“老2”、……、“老9”； 
+
+降序DESC，升序ASC，默认升序
+SELECT prod_name FROM products ORDER BY prod_price DESC;
+
+GROUP BY 语句根据一个或多个列对结果集进行分组。
+在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。
+SELECT name, COUNT(*) FROM   employee_tbl GROUP BY name;
+
+
+查询同时选修了“数据库基础”和“计算机网络”两门课的学生的学号，姓名。
+select sno,sname
+from student
+where sno in
+(select sno from course,sc where course.cno=sc.cno and cname='数据库基础'
+ and 
+ sno in
+ (select sno from course,sc where course.cno=sc.cno and cname='计算机网络')); //包含了两层
+

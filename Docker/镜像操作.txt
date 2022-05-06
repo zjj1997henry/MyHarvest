@@ -1,0 +1,29 @@
+获取镜像 
+docker pull registry.hub.docker.com/ubuntu:18.04
+
+上传镜像
+docker push xxxx.com/ubuntu:zjj
+
+查看所有镜像
+docker images
+
+镜像添加标签
+docker tag imageid  myimage:latest
+
+查看详细信息(很详细）
+docker inspect imageid
+
+查看历史
+docker history imageid
+
+删除镜像
+docker rmi imageid
+
+清理镜像
+docker image prune
+
+载入镜像
+docker load image.tar
+
+存出镜像
+docker save -o image.tar imageid

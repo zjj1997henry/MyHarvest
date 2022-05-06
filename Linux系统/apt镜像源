@@ -1,0 +1,46 @@
+使用apt-mirror命令
+
+ubuntu 20.04 须对apt-mirror作修改
+
+1.增加注释
+sub sanitise_uri
+{
+my $uri = shift;
+$uri =~ s[^(\w+)://][];
+#$uri =~ s/^([^@]+)?@?// if $uri =~ /@/;
+$uri =~ s&:\d+/&/&; # and port information
+$uri =~ s/~/\%7E/g if get_variable("_tilde");
+return $uri;
+}
+2.增加cnf目录下载
+add_url_to_download( $url . $_ . "/binary-" . $arch . "/Release" );
+add_url_to_download( $url . $_ . "/binary-" . $arch . "/Packages.gz" );
+add_url_to_download( $url . $_ . "/binary-" . $arch . "/Packages.bz2" );
+add_url_to_download( $url . $_ . "/binary-" . $arch . "/Packages.xz" );
+add_url_to_download( $url . $_ . "/cnf/Commands-" . $arch . ".xz" );
+add_url_to_download( $url . $_ . "/i18n/Index" );
+
+
+
+deb-arm64 http://mirrors.aliyun.com/ubuntu-ports bionic main restricted universe multiverse
+deb-arm64 http://mirrors.aliyun.com/ubuntu-ports bionic-security main restricted universe multiverse
+deb-arm64 http://mirrors.aliyun.com/ubuntu-ports bionic-updates main restricted universe multiverse
+deb-arm64 http://mirrors.aliyun.com/ubuntu-ports bionic-proposed main restricted universe multiverse
+deb-arm64 http://mirrors.aliyun.com/ubuntu-ports bionic-backports main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu bionic-backports main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu focal main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu focal-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu focal-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu focal-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu focal-backports main restricted universe multiverse
+
+deb-arm64 http://archive.kylinos.cn/kylin/KYLIN-ALL 10.0 main restricted universe multiverse
+deb-arm64 http://archive.kylinos.cn/kylin/KYLIN-ALL 10.1 main restricted universe multiverse
+deb-amd64 http://archive.kylinos.cn/kylin/KYLIN-ALL 10.0 main restricted universe multiverse
+deb-amd64 http://archive.kylinos.cn/kylin/KYLIN-ALL 10.1 main restricted universe multiverse

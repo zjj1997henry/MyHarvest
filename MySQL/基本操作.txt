@@ -1,0 +1,53 @@
+mysql -u root -p123456   			//注意-p后紧跟密码
+
+show databases;				//查看所有数据库
+drop database db;				//删除某数据库
+use db;					//使用某数据库
+
+
+create table tb(
+id int auto_increment primary key,
+name varchar(30) not null,
+math varchar(30) not null);    		//创建表
+
+desc tb;					//查看表结构
+show columns from tb from db;			//查看表结构
+
+alter table tb rename as tb1;  		//修改表名
+create table tb1 like tb;      		//复制表仅结构
+create table tb2 as select*from tb;		//复制表包括数据
+
+select*from tb1;				//查看表中内容
+
+
+
+
+drop table tb1;				//删除表
+truncate table tb1;				//清空表
+
+DELETE from TABLE_NAME where 1=1		//删除表内容
+
+delete是把目录撕了，truncate是把书的内容撕下来烧了，drop是把书扔了
+
+
+
+alter table tb add PE varchar(30) not null;	//添加字段
+
+alter table tb modify name varchar(40);	//修改字段类型
+
+alter table db.tb change column name user_name varchar(30) null default null;		//修改字段名称
+
+alter table tb drop PE;			//删除字段
+
+
+插入完整数据
+
+insert into tb values(1,'王琳琳',93);
+
+插入部分数据（id为自动编号可以不指定或者字段中含有允许为空值项）
+
+insert into tb(user_name,math) values('赵凯',80);
+
+一次插入多条数据
+
+insert into tb(user_name,math) values('孙淼',65),('刘晓君',58),('东雅兴',87),('蔡明明',105);

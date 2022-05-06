@@ -1,0 +1,26 @@
+gdb 
+-tui  上下分屏调试，代码+命令
+
+start 开启调试，停在第一行
+
+-b 10 在第十行打断点
+break 46 if testsize==100 如果testsize==100就在第46行打断点
+info breakpoints 查看所有断点
+delete 2 删除编号为2断点
+delete 删除所有断点
+clear 5 删除第五行断点
+
+u until 退出当前循环体
+
+s  step 进入函数
+
+n next 下一步
+
+c continue 继续程序，知道断点
+
+finish  跳出函数
+
+p [var] 打印变量值
+print *a@10 显示数组a的十个元素
+
+回车  重复上一个命令

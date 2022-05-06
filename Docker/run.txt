@@ -1,0 +1,33 @@
+docker run -i -t -d --name myubuntu ubuntu:18.04
+
+run = create + start
+
+-d 
+后台运行，不然后占用终端
+
+--expose=
+暴露出的端口范围，但是没有映射
+
+-i
+保持标准输入打开
+
+-p
+建立主机与docker的映射
+
+--restart=
+是否自动重启，开机时或者程序出错时
+
+-t
+分配伪终端
+
+-v
+设置共享目录
+
+-e
+设置环境变量
+
+--name
+设置容器别名
+
+--cpuset-cpus=""
+绑定核心

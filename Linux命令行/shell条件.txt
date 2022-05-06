@@ -1,0 +1,30 @@
+变量存在 if [[ -z "$parameter" ]]
+变量不存在  if [[ -n "$parameter" ]]
+
+
+文件属性测试
+
+-e file                             文件存在
+-f file                              文件是常规文件
+-d file                             file是目录
+-b file                             特殊块文件
+-c file                             特殊字符文件
+-L file                              文件是符号链接
+-r/-w/-x file                    文件可读/可写/可执行
+
+//if [ -e /bin/apt-get ]   //true
+
+字符串测试
+-z string                          字符串为空
+-n string                          字符串不为空
+str1 = str2                       字符串相等
+str2 != str2                      字符串不等            
+
+
+算术测试
+int1 -eq int2                    equal
+int1 -ne int2                    not equal
+int1 -le int2                     less equal
+int1 -ge int2                    greater equal
+int1 -lt int2                      less than
+int1 -gt int2                     greater than

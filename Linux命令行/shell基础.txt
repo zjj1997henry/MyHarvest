@@ -1,0 +1,39 @@
+变量赋值                                        var=abc  //  =旁边不可以有空格
+
+执行结果赋给变量                           var=`pwd` 或者 var=$(pwd)
+
+引用变量                                         使用$var,  为了避免歧义使用${var}
+
+变量增加                                         使用let  // var=1  let var=$var+1
+
+删除变量                                         unset var
+
+显示所有文件                                  ll -h
+递归显示所有文件                           ls -R
+
+基本参数扩展                                 ${parameter}
+
+间接参数扩展                                 ${!parameter} //更深一层的值
+
+大写修改                                        ${parameter^^} 一个代表首字符，两个代表全字符
+小写修改                                        ${parameter,,} 一个代表首字符，两个代表全字符
+
+
+特殊变量
+UID                                                只读用户账户标识，root为0
+${N}                                                位置参数，从1开始
+*                                                      所有入参的连接
+@                                                    所有入参（单独）
+#                                                     所有入参个数
+?                                                      上一个命令状态
+$                                                     当前Shell的进程号
+！                                                     上一次后台的进程号
+0                                                        脚本名称
+
+
+declare                                            指定变量类型
+declare -r var=1                              只读变量
+declare -i number                           声明整数变量
+declare -a array                                声明数组
+
+bash -xv test.sh                                调试脚本

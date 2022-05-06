@@ -1,0 +1,97 @@
+cat
+1.查看文件内容                cat /etc/hosts
+                                        cat -n /etc/hosts  -n选项可以显示行号
+
+2.连接显示文件内容           cat test test1 > test2  把test，test1的内容覆盖掉test2         // >表示覆盖，>>表示末尾追加
+                                         cat test1 > test2 把test1的内容覆盖掉test2
+
+
+less
+1.查看文件                        less /etc/hosts
+
+2.搜索文件                        /xxx
+
+
+head
+1.查看文件前几行                head -n 5 /proc/meminfo 或 head -5 /proc/meminfo
+
+2.查看文件除了最后几行      head -n -5 /pro/meminfo
+
+
+tail
+1.查看文件最后几行              tail-n 5 /proc/meminfo 或 tail-5 /proc/meminfo
+
+2.查看实时文件新写入的行    tail -f /var/log/messages
+
+file
+查看文件类型
+
+wc
+查看文件统计信息                   wc /proc/meminfo  得到数字依次代表行数l，单词数w，字节数c
+
+find
+查找文件                                find /etc -name init  在/etc下查找init文件
+
+不区分大小写                         find . -iname example
+
+查找目录                                find . -type d -name example
+
+查找文件                                find . -type f -name "*.sh"  //正则表达式加引号
+...
+
+
+touch
+创建文件                                touch example.txt
+
+mkdir
+创建文件夹                            mkdir temp
+递归创建文件夹                      mkdir temp/ex/my
+
+
+cp
+复制文件或目录                        cp file.txt  ~/
+递归复制                                  cp -R docu  ~/
+保留权限信息复制                     cp -p file.txt ~/
+
+
+ln
+链接文件或目录                        ln -s source dest
+
+
+tr
+替换字符                                 echo LinuxShell | tr a-z A-Z 将小写转为大写
+删除字符                                 echo "This is a Test" | tr -d a-z 删除所有小写字符              空格[:space:]  制表符"\t" 数字[:digit:]
+保留字符                                 echo "I have 153 dollars" | tr -cd [:digit:] 除了数字全部删除
+
+
+grep
+查找字符串                                grep local  /etc/hosts                          -c选项显示次数， -n选项显示行号
+递归查找字符串                         grep -R xxx /proc/meminfo
+
+
+uname
+查看系统信息                             使用--补全
+
+
+tar
+
+ tar  -cvf /tmp/etc.tar  /etc <== 仅打包，不压缩！
+ tar -xvf etc.tar  解包
+ tar -zcvf /tmp/etc.tar.gz /etc <== 打包后，以  gzip  压缩
+ tar -zxvf /tmp/etc.tar.gz 解压缩
+
+
+dd
+sudo dd if=/dev/zero of=/dev/sdc 擦除
+sudo dd if=/dev/sda of=sd.iso        备份
+  
+mount
+mount /dev/sda5 /mydata
+umount mydata
+
+&
+./run.sh &                 后台运行某脚本
+jobs                          查看后台任务
+fg 1                          后台任务放置前台
+Ctrl + z                    挂起任务
+bg 1                         挂起任务防置后台  

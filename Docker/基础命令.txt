@@ -1,0 +1,26 @@
+暂停容器
+docker pause containerid
+
+终止容器
+docker stop containerid
+
+进入容器
+docker exec -it containerid bash
+
+删除容器
+docker rm  containerid   
+-f强制删除
+
+复制文件
+docker cp /local myubuntu:/home/
+docker cp myubuntu:/home/ /local
+
+
+查看变更
+docker diff myubuntu
+
+查看端口命令
+docker port myubuntu
+
+更新配置
+docker update -restart=no myubuntu
