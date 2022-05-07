@@ -1,0 +1,8 @@
+
+
+拷贝系统路径上的(/usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts) libfcitxplatforminputcontextplugin.so 的库到你安装的qtcreator插件目录下：
+
+Qt5.14.2/Tools/QtCreator/lib/Qt/plugins/platforminputcontexts
+和
+Qt5.14.2/5.14.2/gcc_64/plugins/platforminputcontexts
+

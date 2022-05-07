@@ -1,0 +1,6 @@
+作为附加信息区分不同库中的同名函数，可跨文件，可嵌套，名字建议小写
+尽量不要再头文件中使用using namespace，会污染其他头文件
+namespace xxx{
+}
+
+using std::cout 这样使用cout时就不用加命名空间的前缀，但std下其他的仍需要。

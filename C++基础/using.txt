@@ -1,0 +1,18 @@
+1.使用命名空间
+using namespace std;
+
+2.别名
+using intvec = std::vec<int>;
+
+3.在子类中引用基类成员
+恢复基类的防控级别
+class Base{
+protected:
+void test1(){}
+}
+
+class Derived : private Base
+{
+public:
+using Base::test1;
+}

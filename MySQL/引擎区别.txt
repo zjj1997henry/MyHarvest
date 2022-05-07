@@ -12,7 +12,5 @@
 
 7.myisam保存表具体行数；innodb不保存。
 
-8.delete from table时，innodb不会重新简历表，而会一行一行的删除
-————————————————
-版权声明：本文为CSDN博主「渣一个」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weichi7549/article/details/107330581/
+8.delete from table时，innodb会一行一行的删除
+

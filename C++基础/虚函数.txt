@@ -1,0 +1,37 @@
+Linux下
+
+空类大小为1
+空类只有普通成员函数，大小为1
+空类只有虚函数（不止一个），大小为8，首地址插入了一个虚函数表 指针Virtual table pointer。
+
+编译期间编译器生成虚函数表。
+编译器会向类的构造函数中安插为vptr赋值的语句，这个是在编译期间做的。
+
+class A
+{
+public:
+	void func1(){}
+	void func2(){}
+public:
+	virtual void vfunc1(){}
+	virtual void vfunc2(){}
+	virtual ~A(){}
+private:
+	int m_a;
+	int m_b;
+}
+
+那么内存中的排布为：
+
+虚函数表指针vptr  ---> 类A的虚函数表 p1 --> vfunc1
+int m_a;			     p2 --> vfunc2		
+int m_b;			     p3 --> ~A
+
+多态：
+利用vptr找到vtbl，然后通过查询vtbl来找到这个虚函数表入口地址，并去执行这个虚函数。
+
+早绑定
+函数的调用与定义在编译阶段便已经确定
+
+晚绑定
+晚绑定发生在程序运行期间，主要就体现在继承的多态方面
